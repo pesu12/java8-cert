@@ -1,0 +1,88 @@
+Reflection efter java-cert failed.
+=====================================
+Score 44 % 70x0.44=31
+To pass 65 % 70x0.65=46
+----------------------------
+
+Fixa:
+Att tänka på:
+Lära sig parententeser vid ternary expressions (? and :)
+
+Vad gäller vid x++ och ++x
+int a = 100;
+int b = a++
+a=101 och b = 100;
+
+Vad menas med extended for loop och hur fungerar det
+
+Kolla upp angående garbage collection hur mycket som slängs.
+-Det som inte refereras till slängs...
+
+Vad menas med ISO_DATE??? 
+Vad är normalutskrift vid Time and date...
+ldtList.add(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+2021-09-09T10:42:47.9044009
+
+
+Hur ser array-deklarationer ut...
+String[] x = new String[3];
+//Both ways can be written
+String[] b = {"A"};
+String[] a = new String[] {"A"};
+
+Break och continue
+-Break hoppar ur loopen
+-Contine fortsätter på nästa varv.
+
+do loop and while loops..
+Båda ger lika svar men do gör alltid minst en gång medan while kan ge 0 ggr.
+
+When is casting nessary...
+Castning behövs ifall man behöver komma åt en function som inte finns i bas-klassen.
+A obj2 = new B();
+B obj4 =(B) obj2;
+System.out.println("obj4: " + obj4.specialClassBMethod());
+eller:
+System.out.println("obj2: " + ((B)obj2).specialClassBMethod());
+
+för A() = new A();
+kan man inte göra casting till B 
+
+Casting kan även användas ifall man behöver komma åt en viss variabel på en viss nivå.
+A obj2 = new B();
+var x = obj2.var // Hämta variabel från A
+var x = ((B.obj2).var // Hämta variabel från B
+
+
+
+Certbok 292:
+An object-oriented language is software that is designed by creating discrete objects 
+that interact to make up the functionality of the application.
+
+Encapsulation is concept of storing data together with methods that operate on that data.
+Encapsulation allows for data and method hiding.
+
+Exceptions
+Separation of error-handling code from main code of a program
+Provides a means to propagate errors up the call stack
+Gives ability to group like exceptions together.
+
+-------------------------------------------------
+Träna lite mer på:
+Inheritance
+Exceptions
+
+
+Vad gick bra
+=============
+
+Lambda och predikat gick bra..
+Double gick bra.
+Switch satser gick bra...
+
+----------------------------
+		int[][] a = new int[3][];
+		a[1] = new int[] {1,2,3};
+		a[2] = new int[] {4,5};
+		System.out.println(a[1][1]);
+

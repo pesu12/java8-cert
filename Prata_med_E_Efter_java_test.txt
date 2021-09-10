@@ -1,0 +1,387 @@
+Efter samtal med Erika om Java-certifiering
+===========================================
+-Läsa boken
+-Lära sig om klassers metoder för Stringar, StringBuilder, Arrayer, Listor.
+-Lära sig corner-cases om Java.
+
+---------------------------------------
+Fel på tester?
+
+
+
+--------------------------------------------------------------
+Udemy course
+-Använda penna och papper för att skriva om koden, tex om koden är ihoptryckt så kan man skriva om den med indentering.
+-Skriva ut e++ för varje rad...
+
+-If line starts with 1 checkout for imports, If line start with for instance 8 no need to check for imports.
+-You always need to have packages otherwise you can not fetch classes from other packages, <New beginner faults>.
+
+-you can do static variable imports to class
+
+-------------------------------------------------------------
+Saker att se upp för i testet
+StringBuilder sb= "Test"
+i=i++  //Gives same value over and over again
+public void main without static
+types called string instead of String.
+int[][] scores = new int[5][] , Ok , //First part must always contain a digit.
+int[] scores = new int[]  , not ok
+----------------------------
+
+
+Object is something that is created by an instance and holds data in memory.
+Reference type = Animal (static), reference type is also called data type.
+Reference variable is something that points to and object. = a.
+Object type is Cat, => type that can be instansiated.
+Animal a = new Cat();
+
+Object o = a; //Sets Animal to type Object. Then you can only do things that Object class can
+like equals(), hashcode().
+But if data is updated on a then it affects o as well.
+------------------------------------------------------------
+If variables are not initiated, the following is valid.
+1. Local variable will not compile if they dont have values.
+2. Instance variables will be set to int =0, char ='',String=null, Object=null
+3. Instance variable with final must be initialized in declaration or in method. Otherwise there is a "compile error".
+------------------------------------------------------------
+Autoboxing is when automatic conversion from primitive to wrapper, int -> integer
+
+Regel:
+int y = Integer. parseInt(String);  // String to int
+Integer x = Integer.valueOf(int or String)  //String or int to Integer, Not Autoboxing
+
+
+-Integer y = Integer. parseInt(String);      //Autoboxing   (String to int, then autoboxing)
+ ages.add(7) A                              //Autoboxing
+-int to Integer => boxing (Primitive to wrapper)
+
+Integer x = new Integer(5);
+-Integer to int => unboxing (Wrapper to primitive)
+-Autoboxing Integer z = 5;
+
+
+-------------------------------------
+float hello, float xxx; does not work, float hello, test; works fine 
+codeblock {...} man kan ha kodblock i en function. med lokala variabler. även en function är ett kodblock.
+-------------------------------------
+float must be wit f at end, for intance 14f.
+int x =(int) myDouble.
+byte y = (byte) myInt, byte z = (byte) (myInt + myByte)
+Byte are converted int, then to float/double.
+When having int x = byte y+byte z for byte and shortthen default result for x is int.
+--------------------------------------------------
+IntegerCache:
+== are for primitives
+.equals are for objects.
+== for objects are referring to adresses
+If Integer variable is between -128 and 127 => Primitive, otherwise object. 
+Integer xy =127;
+Integer yz = 127;
+System.out.println(xy == yz); //true
+Integer xy =128;
+Integer yz = 128;
+System.out.println(xy == yz); //false
+
+xy.hashCode()  // displays memory adress
+
+--------------------------------
+while (false) => Code never runs
+int i = 0;
+for (int i =0;i<10;)  , i = 10;
+------------------------------------
+Java Ternary
+System.out.println(x>2 ? x<4?10:8:7);
+System.out.println(x>2 ? ((x<4?10:8):7); //inner tenary gives 8
+System.out.println(x>2 ? 8:7);  => 8
+----------------------------------
+++v operator increases values and returns new value
+v-- opeator decreases value and returns original value. ov--)
+
+----------------------------------
+system.out.println("X" = (2+5)) => X7
+Stringpool
+String name = "John"; String name2 = "John"; name== name2 due to StringPool. 
+String str1="abc"; String str2="ab"; String str3= str2+c; str1!=str3 due to that StringPool is calculated a compile and not runtime.
+String name= "John"; String newName = new String("John"); name=!newName newName is on heap.
+String name= "John"; String newName = new String("John"); name.equals(newName) = true;
+system.out.println(System.IdentityHashCode(name); => gives memory-adress
+
+String can not be set to a char 
+String s = 'b';
+
+substring(startpos,endpos-1)
+substring(1,3) is position 1 and 2 , not position 3
+substring(6,5) => gives exception
+
+substring(4), is position 4 and forward.
+replace('a','h'); //replaces char a with h
+replace("ag","au"); //replaces strings ag with au
+replace is also valid for StringBuilder
+
+Arrays.toString(s1) // prints String.
+String is inmutable..
+
+String does not support reverse,insert,append, delete
+---------------------------------------------
+Stringbuilder delete(2-7) position 2-6
+passing values to method, StringBuilder affected since it is referencing an object.
+StringBuilder is mutable so that it updates the object.
+sb.substring(2) does not affect the object.
+Stringbuilder uses same methods as String + reverse,insert,append, delete
+-------------------------------------------------------
+equals method declared in Object class has the declaration: public boolean equals(Object). No compilation error is done.
+String do override ==
+StringBuilder class doesn't override equals(Object) method. So Object version is invoked which uses == operator
+Array does not support equals,just ==
+--------------------------------------------------
+ArrayList is a type of array...
+ArrayList supports add("Cat"),remove(1,"Cat"),isEmpty()(true/false), size(), clear()
+ArrayList does not support length()
+-----------------------------------------------------------
+List does not support "add" and "remove" from list. set, update and delete are supported.
+-----------------------------------------------------------
+List can be declared as:
+List x = new ArrayList<>();
+--------------------------------------------------------------
+int[][] scores = new int[5][] , Ok , It is legal to have empty size if first size is always there
+int[] scores = new int[]  , not ok
+int[][] types = new[int], Not ok missing type
+String beans = new beans[6], Not ok ,rightside must be type like String.
+int[][] a[][], b[] => a[][][][] and b[][][]
+---------------------------------------
+in Switch it is ok to set default first and then case.
+In Switch the case must be same type as switch, otherwise there is a compilation error.
+switch accept char or Character,byte or Byte, short or Short,int or Integer, enum, String
+----------------------------------------------------
+ArrayList mylist = new ArrayList();  //Is valid
+Mylist.add(1),Mylist.add(0,"Cat"),Mylist.add(1,"Cat"); Mylist.remove(1,"Cat"),isEmpty()(true/false), size(), clear(),
+contains()(true/false), equals()(list1=list2, same object, same order)(true/false)
+List<Double> xx = new ArrayList<Double> //Need to be Double
+nums.remove(1); //data at index 1
+nums.remove(new Integer(1); Removes object (value)number 1
+String string = list.toArray(new String[names.size()]); //Affects both string and list if list is updated.
+List <String> list = Arrays.asList(string); //List does not support "add" and "remove" from list. set, update and delete are supported.
+Collections.sort(xx);Collections.binarySearch(xx)=-1;
+------------------------------------------------------------
+You can not modify an array or list if you loop through it but you can modify loop with Iteratos when looping through.
+Iterator is good when removing items from list while looping
+for(Iterator<Integer> iterator = numbers.iterator();iterator.hasNext();){
+ListIterator is good when adding, looking at certain index.
+for(ListIterator<Integer> listIterator = numbers.listIterator(3); listIterator.hasPrevious();){
+
+Ordered = > Elements has same order as they were inserted.
+--------------------------------------------------------
+final static public void jump10(){} will compile. //final and static can be placed before public
+void ca not be placed before public
+Variable argument jump(int... test);
+----------------------------------------
+valid return statements are
+public void x(){return;}
+public void x(){}
+--------------------------------------
+public access modifiers is everything
+protected access modifiers is between package if a subclass of its class in another package.
+default access modifiers is between package and class, it is not allowed in classes to declare a method as default like default void test(){}, but fine in interface.
+private access modfiiere is only within class.
+-----------------------------------------
+static methods can not call not static functions or non static instance variables but static methods can call non static functions with new..
+---------------------
+private static final int X;
+static {
+	X = 5;
+	X = 4; //Not allowed, only allowed to add value once on final
+	}
+private static final String bench;
+main , bench ="bench" is not allowed
+----------------------
+passing values to method, int or String not affected, StringBuilder affected since it is referencing an object.
+Array of int and String are affected since array is as object.
+If in an Array pass value to method where new is done, then the passing object is not affected.
+--------------------------
+Overloading methods strategy
+1. Same primitive
+2. Higher primitive, long instead of int
+3. Autoboxing tex int => Integer, int => object.
+4. Varargs int..
+---------------------------
+Overriding is if a subclass defines same method as parent.
+Java methods can be overriden if the child has access modifier same or bigger than base-class.
+Java methods can be overriden if the child has Exception same or less than base-class.
+Covariant = return type of overriding method non-primitive type.
+It allows to narrow down return type of an overridden method without casting.
+
+final methods in baseclass can be overrieden if they are private.
+final methods in baseclass gives compile error if they are other than private.
+static methods can not override non static methods and vice versa.
+
+
+In java variables can not be overridden but they can exist in different base and subclasses
+
+Overloading is if a method has same name but different inparameters.
+
+this("Cat) calls constructor in same class.
+super.age="5" can be called for instance when baseclass type is String and childclass is of type int.
+Another situation is when base class methods throws one thing and subclass another thing. 
+-------------------------------
+Order if initialization
+1. Super class initialization
+2. Static variable and static initializers
+3. Instance variable and initializers
+4. Constructors.
+------------------------
+1. super;  //does not compile
+2. super().setAge() does not compile
+3. this() call same method recurivly
+super() is always called from subclass constructor to main constructor 
+Exception is when super is added with for instance super(5).
+super() och this() must always be on the first line in the method
+---------------------------------------
+Polymorphism , an object can take many forms.
+Polymorphism can be use when you:
+1. When you need to add new subobject without changing the code.
+2. Like to compare different objects like areas of Rectangles and Triangles on Shapes
+3. Like to add a subclass and update static base-class variables. like keep track on how many cars are added.
+4. When you like to create a list of similar objects.
+
+You can do Animal d = new Dog();  //get methods for Animal
+At compilation time Animal variables  and methods are only seen.
+There is a compilation error if you try to access dog variables at compile time.
+There is no complation error if you declare exact same method in parent and subclass.
+At runtime Dogs same method is used if the name is same in base and child class "Dynamic method dispatching"
+If a method is declared in Dog but not in Animal then there is a compilation error.
+
+Dog y = (Dog) d; //Get methods for dogs and animal.
+Virtual methods are methods that are created in runtime.
+When reference is Animal but Dog is set in runtime then the Dogs methods will be executed in runtime. 
+
+You can stop Virtual methods to happen by setting base class method to final. 
+Then you are not allowed to declare the same method in the child class.
+
+Class B extends A
+A a = new B(); // object of type B
+System.out.println(a.x);  //Always displays Parent class variable
+
+Polymorphetic parameters,
+You can send in the subclass as parameter when method is declared as base-parameter
+If method printDetails() is defined in base-class Animal;
+You can do printDetails(dog); if class Dog inherits base-class
+But instead of doing printDetails(dog) and printDetails(cat)
+you can do printDetails(animal)
+
+Class casting:
+Animal d = new Dog(); 
+Dog y = (Dog) d;  //Now y has access to Dog variables
+((Dog) D).color ="Grey"; //a temporary 
+-----------------------------------------------------------------------
+Abstract classes are when we want to use classes Polymorphicly.
+Abstract classes can not be instanciated directly
+Abstract classes can have 0 -> many abstract methods
+Abstract classes cannot be private or final
+Abstract classes that extends another abstract class inherits all its methods as own abstract methods.
+First class that extends abstract class must implement all of the inherited abstract methods.
+
+abstract methods can only be defined in abstract classes.
+abstract methods cannot be private, static or final
+constructors cannot be abstract.
+variables cannot be abstract;
+abstract methods does not have body and must be implemented in child class.
+abstract methods can not be abstract and static at the same time.
+Abstract classes cannot contain default methods.
+------------------------------------------------------
+Interface class is public abstract when we want to inherit classes Polymorphicly.
+Interace Drawable
+Drawable d1 = new Cat();
+
+All interface variable are constants (public static final)
+
+When interface is being abstract it can pass on its methods through all abstract classes below. 
+Methods in interface are public and abstract and without body.
+
+The word "public" can be omitted in the interface but must be add in the class since
+method access modifier is set to default if nothing is specified.
+
+Since Java-8 methods can be written "default" with a body. Interface is only method that can write "Default" 
+This is to add functionality without breaking the interface.
+
+Since Java-8 methods can be static with a body. public static methodName....
+This is to add functionality without breaking the interface.
+Problem with static is that methods can not be inherited
+
+Can be written as:
+    public void checkName3(String name);
+    public abstract void checkName3(String name);	
+    void checkName3(String name);	
+	static void deleteName(String name) {}
+	default void checkName(String name) {}
+	public static void deleteName2(String name) {}
+	public default void checkName2(String name) {}
+
+
+If method is static or default without body it will not compile.
+If method with body is only public and not default or static it will not compile.
+Interface does not inherit java.lang.object since it does not support multiple inheritance.
+Classes implementing Interface must add public methods but not static or default methods.
+Exception is when class implements multiple interfaces and a method is the same => then the class must override the method
+because we dont know what interface method to call.
+---------------------------------------------------------------------------------------------------------------------------
+When to use abstract class or interface.
+When to use polymorphism. Classes and Interfaces does not save or make code easier, it gives more codes and complicates the code.
+Abstract classes are used when:
+You want to share code between close to each other classe like Anmimal, Pet, Dog
+When access modifiers are other than public, for instance protected or private.
+When you want to declare non static or non static variables.
+
+Interface are used when:
+When there are functionality not so close to each other.
+
+---------------------------------------------------------
+What modifiers are implicity applies to all interface methods, Answer: Only Public
+Reference type for new object can be an interface, for instance Interface X = new class();
+--------------------------------------------------------
+Marker interface has no abstract method, for instance seriazable
+Functional interface has one abstract method.
+
+Lambdas can be written as:
+(double percentage) -> {return salary;}
+(percentage) -> {return salary;}
+percentage -> return salary //{} return and ; can be removed.
+
+What does not compile is 
+double percentage -> {return salary;}
+------------------------------------------------------
+Predicate:
+Predicate clear = c -> c.equals("grey");
+
+Will not compile, Predicate is on object but .startsWidth is not in object.
+
+Will not compile, b is declared 2 times.
+Predicate<String> p = (String b) -> {String b="4";return true;};
+
+Will not compile, Predicate is on object but .startsWidth is not in object.
+Predicate dash = c -> c.startsWith("-"); 
+---------------------------------
+Locals are inmutable and does not have set-methods but they have get-methods.
+
+Period yearAndMonth = Period.ofYears(1).ofMonths(1); 
+//Will only use last  .ofMonths(1) since Period is static.
+Period yearAndMonth = Period.of(1,1,1); //is better. displays P1Y1M
+
+dateTime.format can be ISO_LOCAL_DATE, ISO_LOCAL_DATe_TIME; ISO_LOCAL_TIME
+
+parsing is converting String to some object 
+---------------------------------------------
+try catch
+A try block must always have a catch or finally block even if Exception is sent to calling method.
+
+finally will always execute, even for instance return 1 is added in line before. 
+Only exception when finally will not execute is in System.exit(0) that terminates JVM.
+
+
+class NoMoreMeatException extends Exception () //Create checked exception
+class NoMorePlantsException extends RuntimeException () //Create unchecked exception
+
+when doing throws Exception in a subclass the throws Exception must be same or narrower.
+Class Animal throws Exception...
+Class Dog extends Animal throws RealTimeException...
+When there is no checked exception in base class then unchecked exception can be added in the subclass..ö 
